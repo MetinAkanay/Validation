@@ -1,8 +1,23 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-}
+﻿@model AddUser
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+
+<div class="mb-3">
+    @Html.LabelFor(m => m.IdentityNo, new { @class = "form-label" })
+    @Html.TextBoxFor(m => m.IdentityNo, new { @class = "form-control", placeholder = "Tc Kimlik No" })
+</div>
+<div class="mb-3">
+    @Html.LabelFor(m => m.Name, new { @class = "form-label" })
+    @Html.TextBoxFor(m => m.Name, new { @class = "form-control", placeholder = "İsim" })
+</div>
+<div class="mb-3">
+    @Html.LabelFor(m => m.LastName, new { @class = "form-label" })
+    @Html.TextBoxFor(m => m.LastName, new { @class = "form-control", placeholder = "Soy İsim" })
+</div>
+<div class="mb-3">
+    @Html.LabelFor(m => m.Email, new { @class = "form-label" })
+    @Html.TextBoxFor(m => m.Email, new { @class = "form-control", placeholder = "Email" })
+</div>
+<div class="mb-3">
+    @Html.LabelFor(m => m.Age, new { @class = "form-label" })
+    @Html.TextBoxFor(m => m.Age, new { @class = "form-control", placeholder = "Yaş" })
 </div>
