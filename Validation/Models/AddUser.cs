@@ -5,6 +5,7 @@ namespace Validation.Models
 {
     public class AddUser
     {
+        [Required(ErrorMessage ="Tc Kimlik numarası boş bırakılamaz.")]
         [Display(Name = "T.C. Kimlik No")]
         [StringLength(11, ErrorMessage = "T.C. Kimlik No 11 haneli olmalıdır.")]
         [RegularExpression("^[1-9]{1}[0-9]{9}[02468]{1}$", ErrorMessage = "Geçerli bir T.C. Kimlik No giriniz.")]
@@ -23,7 +24,7 @@ namespace Validation.Models
         [Display(Name = "E-posta")]
         [Required(ErrorMessage = "E-posta alanı boş bırakılamaz.")]
         [RegularExpression("^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$", ErrorMessage = "Geçerli bir e-posta adresi giriniz.")]
-        public int Email { get; set; }
+        public string Email { get; set; }
 
         [Display(Name = "Yaş")]
         [Required(ErrorMessage = "Yaş alanı boş bırakılamaz.")]
