@@ -1,3 +1,6 @@
+using Microsoft.EntityFrameworkCore;
+using Validation.DMO;
+
 namespace Validation
 {
     public class Program
@@ -8,6 +11,10 @@ namespace Validation
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+
+            builder.Services.AddScoped(typeof(PersonelContext));
+            builder.Services.AddDbContext<PersonelContext>(options =>
+                           options.UseSqlServer(builder.Configuration.GetConnectionString("PersonelContext")));
 
             var app = builder.Build();
 

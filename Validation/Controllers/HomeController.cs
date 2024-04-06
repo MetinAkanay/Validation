@@ -1,16 +1,17 @@
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System.Diagnostics;
+using Validation.DMO;
 using Validation.Models;
 
 namespace Validation.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
+        public PersonelContext _context;
+        public HomeController(PersonelContext context)
         {
-            _logger = logger;
+            _context = context;
         }
 
         public IActionResult Index()
@@ -24,7 +25,17 @@ namespace Validation.Controllers
         {
             if (ModelState.IsValid)
             {
-                
+
+                _context.Users.Add(new User
+                {
+                    IdentityNo = model.IdentityNo,
+                    Name = model.Name,
+                    LastName = model.LastName,
+                    Email = model.Email,
+                    Age = model.Age
+                });
+                _context.SaveChanges();
+
             }
             return View();
         }
