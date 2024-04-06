@@ -5,7 +5,8 @@ namespace Validation.Models
     public class AddUser
     {
         [Display(Name = "T.C. Kimlik No")]
-        
+        [StringLength(11, ErrorMessage = "T.C. Kimlik No 11 haneli olmalıdır.")]
+        [RegularExpression("^[1-9]{1}[0-9]{9}[02468]{1}$", ErrorMessage = "Geçerli bir T.C. Kimlik No giriniz.")]
         public string IdentityNo { get; set; }
 
         [Display(Name = "İsim")]
