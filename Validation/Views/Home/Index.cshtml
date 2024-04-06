@@ -1,23 +1,34 @@
 ﻿@model AddUser
 
+@using (Html.BeginForm("Index","Home",FormMethod.Post))
+{
 
 <div class="mb-3">
     @Html.LabelFor(m => m.IdentityNo, new { @class = "form-label" })
     @Html.TextBoxFor(m => m.IdentityNo, new { @class = "form-control", placeholder = "Tc Kimlik No" })
+    @Html.ValidationMessageFor(m => m.IdentityNo)
 </div>
 <div class="mb-3">
     @Html.LabelFor(m => m.Name, new { @class = "form-label" })
     @Html.TextBoxFor(m => m.Name, new { @class = "form-control", placeholder = "İsim" })
+    @Html.ValidationMessageFor(m => m.Name)
 </div>
 <div class="mb-3">
     @Html.LabelFor(m => m.LastName, new { @class = "form-label" })
     @Html.TextBoxFor(m => m.LastName, new { @class = "form-control", placeholder = "Soy İsim" })
+    @Html.ValidationMessageFor(m => m.LastName)
 </div>
 <div class="mb-3">
     @Html.LabelFor(m => m.Email, new { @class = "form-label" })
     @Html.TextBoxFor(m => m.Email, new { @class = "form-control", placeholder = "Email" })
+    @Html.ValidationMessageFor(m => m.Email)
 </div>
 <div class="mb-3">
     @Html.LabelFor(m => m.Age, new { @class = "form-label" })
     @Html.TextBoxFor(m => m.Age, new { @class = "form-control", placeholder = "Yaş" })
-</div>
+    @Html.ValidationMessageFor(m => m.Age)
+    </div>
+
+
+    <button type="submit" class="btn btn-outline-success">Kaydet</button>
+}
