@@ -15,11 +15,12 @@ namespace Validation.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            AddUser model = new AddUser();
+            return View(model);
         }
 
         [HttpPost]
-        public IActionResult Index()
+        public IActionResult Index(AddUser model)
         {
             return View();
         }
